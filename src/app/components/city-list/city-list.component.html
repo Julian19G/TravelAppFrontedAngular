@@ -1,0 +1,7 @@
+<h2>Lista de Ciudades</h2>
+<ul>
+  <li *ngFor="let city of cities">
+    <strong>País:</strong> {{ city.country }} <br>
+    <strong>Moneda:</strong> {{ city.currency_name }} ({{ city.currency_symbol }}) - Código: {{ city.currency_code }}
+  </li>
+</ul>
