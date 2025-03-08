@@ -1,0 +1,39 @@
+<div class="travel-summary-container">
+  <!-- Título del destino -->
+  <h2>{{ city ? 'Resumen de tu viaje a ' + city : 'Cargando destino...' }}</h2>
+
+  <!-- Clima -->
+  <div class="weather">
+    <h3>Clima actual</h3>
+    <p *ngIf="weather; else loadingWeather">
+      🌡️ {{ weather.main.temp | number:'1.0-1' }}°C - {{ weather.weather[0]?.description }}
+    </p>
+    <ng-template #loadingWeather><p>Cargando clima...</p></ng-template>
+  </div>
+  
+
+  <div class="currency-info">
+  <h3>Información de Moneda</h3>
+  <p *ngIf="currencyName">
+    Moneda: {{ currencyName }} ({{ currencySymbol }})
+  </p>
+  <p *ngIf="exchangeRate !== null && exchangeRate !== undefined; else loadingExchange">
+    💱 1 {{ currencySymbol }} = {{ exchangeRate | number:'1.2-2' }} COP
+  </p>
+  <ng-template #loadingExchange>
+    <p *ngIf="exchangeRate === null">⚠️ No se pudo obtener la tasa de cambio.</p>
+    <p *ngIf="exchangeRate === undefined">Cargando tasa de cambio...</p>
+  </ng-template>
+</div>
+
+
+  <!-- Presupuesto Convertido -->
+  <div class="budget-conversion">
+    <h3>Presupuesto Convertido</h3>
+    <p *ngIf="budgetCOP">💰 Tu presupuesto: {{ budgetCOP | number }} COP</p>
+    <p *ngIf="convertedBudget && currencySymbol; else loadingBudget">
+      🔄 Equivale a: {{ convertedBudget | number:'1.2-2' }} {{ currencySymbol }}
+    </p>
+    <ng-template #loadingBudget><p>Cargando conversión...</p></ng-template>
+  </div>
+</div>
