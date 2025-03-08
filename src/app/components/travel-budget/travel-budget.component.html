@@ -1,0 +1,13 @@
+<div class="travel-budget-container">
+    <h2>Planifica tu viaje</h2>
+  
+    <label for="city">Selecciona una ciudad:</label>
+    <select id="city" [(ngModel)]="selectedCity">
+        <option *ngFor="let city of cities" [ngValue]="city">{{ city.country }}</option>
+    </select>
+  
+    <label for="budget">Presupuesto en COP:</label>
+    <input id="budget" type="number" [(ngModel)]="budget" placeholder="Ingresa tu presupuesto" />
+  
+    <button (click)="continue()">Continuar</button> <!-- 👈 Ahora llama a continue() en vez de goToSummary() -->
+</div>
