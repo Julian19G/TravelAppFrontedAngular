@@ -1,0 +1,14 @@
+.background {
+    position: fixed;           /* Fijar el fondo a la pantalla */
+    top: 0;                    /* Asegura que cubra toda la pantalla desde la parte superior */
+    left: 0;                   /* Asegura que cubra toda la pantalla desde la parte izquierda */
+    width: 100vw;              /* Ancho completo de la ventana */
+    height: 100vh;             /* Altura completa de la ventana */
+    background: rgb(0, 36, 36); /* Un color base oscuro */
+    background: linear-gradient(90deg, rgba(0, 36, 36, 1) 0%, rgba(0, 85, 106, 1) 50%, rgba(53, 145, 168, 1) 100%); /* Degradado sutil */
+    z-index: -1;               /* Asegura que el fondo esté por detrás del contenido */
+    margin: 0;                 /* Elimina cualquier margen */
+    padding: 0;                /* Elimina cualquier padding */
+    overflow: hidden;          /* Evita barras de desplazamiento */
+  }
+  
