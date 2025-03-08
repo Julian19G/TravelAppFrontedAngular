@@ -1,0 +1,7 @@
+h1 {
+    color: white; /* Texto en blanco */
+    text-align: center; /* Centrado horizontal */
+    margin: 20px; /* Márgenes alrededor del título (puedes ajustarlo según sea necesario) */
+    font-weight: bold; /* Fuente en negrita */
+    font-size: 2.5rem; /* Tamaño de la fuente, ajustable a tus necesidades */
+  }
