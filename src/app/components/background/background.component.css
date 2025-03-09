@@ -1,14 +1,76 @@
 .background {
-    position: fixed;           /* Fijar el fondo a la pantalla */
-    top: 0;                    /* Asegura que cubra toda la pantalla desde la parte superior */
-    left: 0;                   /* Asegura que cubra toda la pantalla desde la parte izquierda */
-    width: 100vw;              /* Ancho completo de la ventana */
-    height: 100vh;             /* Altura completa de la ventana */
-    background: rgb(0, 36, 36); /* Un color base oscuro */
-    background: linear-gradient(90deg, rgba(0, 36, 36, 1) 0%, rgba(0, 85, 106, 1) 50%, rgba(53, 145, 168, 1) 100%); /* Degradado sutil */
-    z-index: -1;               /* Asegura que el fondo esté por detrás del contenido */
-    margin: 0;                 /* Elimina cualquier margen */
-    padding: 0;                /* Elimina cualquier padding */
-    overflow: hidden;          /* Evita barras de desplazamiento */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(-45deg, #1e3a5f, #25669e, #47aee8, #a2d9ff);
+  background-size: 400% 400%;
+  animation: moveBackground 10s infinite ease-in-out;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Animación del gradiente para simular un cielo en movimiento */
+@keyframes moveBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Simulación de nubes en movimiento */
+.clouds {
+  position: absolute;
+  top: 20%;
+  left: -100px;
+  width: 200px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  filter: blur(10px);
+  animation: moveClouds 20s linear infinite;
+}
+
+.clouds::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 80px;
+  top: -20px;
+  left: 50px;
+}
+
+@keyframes moveClouds {
+  0% { transform: translateX(0); opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { transform: translateX(110vw); opacity: 0; }
+}
+
+/* Añadir múltiples nubes con diferentes posiciones */
+.clouds:nth-child(2) { top: 40%; animation-duration: 25s; opacity: 0.8; }
+.clouds:nth-child(3) { top: 60%; animation-duration: 18s; opacity: 0.6; }
+
+
+@media (max-width: 768px) { /* Tablets y móviles */
+  .travel-budget-container {
+      width: 90%;
+      padding: 15px;
   }
-  
+
+  select, input, button {
+      font-size: 14px; /* Reduce el tamaño del texto */
+      max-width: 280px; /* Evita que se vean enormes */
+  }
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+  h2 {
+      font-size: 18px; /* Reduce tamaño del título */
+  }
+
+  label {
+      font-size: 14px;
+  }
+}

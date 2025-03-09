@@ -66,6 +66,17 @@ export class TravelSummaryComponent implements OnInit {
     });
   }
 
+  getImageClima(): string {
+    return '/assets/clima.png';
+  }
+  
+  getImageDinero(): string {
+    return '/assets/dinero.png';
+  }
+  getImagePresupuesto(): string {
+    return '/assets/presupuesto.png';
+  }
+
   convertBudget() {
     if (this.exchangeRate > 0) {
       this.convertedBudget = this.budgetCOP / this.exchangeRate;  // 🔄 Cambio aquí
@@ -75,6 +86,9 @@ export class TravelSummaryComponent implements OnInit {
     }
   }
   
+  volverInicio() {
+    window.location.href = '/'; // O usa Router si es Angular con rutas
+  }
   
   
   getExchangeRate() {
@@ -85,7 +99,7 @@ export class TravelSummaryComponent implements OnInit {
         console.log('📡 Respuesta completa de la API:', data);
   
         if (data && data.rates) {
-          console.log('💱 Tasas de cambio disponibles:', Object.keys(data.rates));
+          console.log('💲 Tasas de cambio disponibles:', Object.keys(data.rates));
   
           if (this.currencyCode in data.rates) {
             this.exchangeRate = 1 / data.rates[this.currencyCode];  // 🔄 Invertimos la tasa
@@ -103,10 +117,19 @@ export class TravelSummaryComponent implements OnInit {
       error: (err) => console.error('❌ Error al obtener la tasa de cambio:', err)
     });
   }
+
+  getCityData() {
+    const url = `http://127.0.0.1:8000/api/city-data/${this.city}`;
   
-  
-  
-    
+    this.http.get<any>(url).subscribe({
+      next: (data) => {
+        this.weather = data.weather;
+        this.exchangeRate = data.exchange_rate.COP_to_USD;
+        this.convertBudget();
+      },
+      error: (err) => console.error('❌ Error al obtener los datos de la ciudad:', err)
+    });
+  }  
   
 }  
 

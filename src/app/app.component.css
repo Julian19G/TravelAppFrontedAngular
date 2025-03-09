@@ -5,3 +5,24 @@ h1 {
     font-weight: bold; /* Fuente en negrita */
     font-size: 2.5rem; /* Tamaño de la fuente, ajustable a tus necesidades */
   }
+  @media (max-width: 768px) { /* Tablets y móviles */
+    .travel-budget-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    select, input, button {
+        font-size: 14px; /* Reduce el tamaño del texto */
+        max-width: 280px; /* Evita que se vean enormes */
+    }
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+    h2 {
+        font-size: 18px; /* Reduce tamaño del título */
+    }
+
+    label {
+        font-size: 14px;
+    }
+}
