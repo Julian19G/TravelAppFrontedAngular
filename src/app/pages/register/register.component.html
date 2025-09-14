@@ -1,0 +1,53 @@
+<div class="login-container fade-in">
+  <h2>Registrarse</h2>
+
+  <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="name"
+        required
+        placeholder="Tu nombre"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo electrónico</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+        placeholder="tucorreo@ejemplo.com"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        placeholder="*****"
+      >
+    </div>
+
+    <button type="submit" class="login-button" [disabled]="!registerForm.valid">
+      Registrarse
+    </button>
+  </form>
+
+  <p class="register-text">
+    ¿Ya tienes cuenta? <a href="http://localhost:4200/login">Inicia sesión</a>
+  </p>
+
+  <p *ngIf="errorMessage" class="register-text" style="color:red;">
+    {{ errorMessage }}
+  </p>
+</div>
