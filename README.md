@@ -1,59 +1,69 @@
-# MiProyectoAngular
+# 🌍 Frontend - Travel App  
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Este frontend en **Angular 17** permite a los usuarios planificar viajes, administrar presupuestos y consultar información de ciudades, incluyendo clima y tasas de cambio de moneda.  
 
-## Development server
+## 📌 Características  
+✅ Diseño responsivo con Angular Material.  
+✅ Consumo de APIs para clima y conversión de moneda.  
+✅ Manejo de rutas y navegación con `RouterModule`.  
+✅ Uso de `HttpClientModule` para peticiones HTTP.  
+✅ Formularios reactivos para capturar datos del usuario.  
 
-To start a local development server, run:
+---
 
+## 🚀 Instalación y Configuración  
+
+### 1️⃣ Clonar el Repositorio  
 ```bash
+git clone https://github.com/Julian19G/TravelAppFrontedAngular.git
+cd travel-frontend
+2️⃣ Instalar Dependencias
+bash
+Copiar
+Editar
+npm install
+3️⃣ Configurar Variables de Entorno
+Edita src/environments/environment.ts y agrega la URL del backend:
+
+ts
+Copiar
+Editar
+export const environment = {
+  production: false,
+  apiUrl: 'http://127.0.0.1:8000/api'
+};
+4️⃣ Iniciar la Aplicación
+bash
+Copiar
+Editar
 ng serve
-```
+La app estará disponible en http://localhost:4200.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🛠️ Estructura del Proyecto
+bash
+Copiar
+Editar
+📂 travel-frontend
+ ├── 📂 src
+ │    ├── 📂 app
+ │    │    ├── 📂 components
+ │    │    │    ├── 📂 city-selector
+ │    │    │    │    ├── city-selector.component.ts
+ │    │    │    │    ├── city-selector.component.html
+ │    │    ├── 📂 services
+ │    │    │    ├── city.service.ts
+ │    │    │    ├── weather.service.ts
+ │    │    ├── 📂 pages
+ │    │    │    ├── 📂 home
+ │    │    │    │    ├── home.component.ts
+ │    │    │    │    ├── home.component.html
+ │    │    │    ├── 📂 summary
+ │    │    │    │    ├── summary.component.ts
+ │    │    │    │    ├── summary.component.html
+ │    │    ├── app.module.ts
+ │    │    ├── app-routing.module.ts
+ ├── 📂 environments
+ │    ├── environment.ts
+ ├── angular.json
+ ├── package.json
+ ├── README.md
