@@ -87,7 +87,7 @@ export class TravelSummaryComponent implements OnInit {
   }
   
   volverInicio() {
-    window.location.href = '/'; // O usa Router si es Angular con rutas
+    window.location.href = '/budget'; // O usa Router si es Angular con rutas
   }
   
   

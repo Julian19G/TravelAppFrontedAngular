@@ -5,13 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { RouterModule } from '@angular/router';
+import { authInterceptor } from './auth/auth.interceptor'; 
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    importProvidersFrom(FormsModule, RouterModule), // Mantener FormsModule y RouterModule juntos
-    provideHttpClient(withInterceptors([])), // Mantener solo una vez
+    importProvidersFrom(FormsModule, RouterModule),
+    provideHttpClient(
+      withInterceptors([authInterceptor]) // ✅
+    ),
   ]
 };
